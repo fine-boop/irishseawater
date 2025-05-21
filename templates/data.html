@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw data</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #fff;
+            color: #333;
+            transition: 0.3s ease-in-out;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar-toggle {
+            position: absolute;
+            top: 20px;
+            right: -50px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1002;
+        }
+
+        .sidebar-toggle:hover {
+            background-color: #555;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        /* Table styles */
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: block;
+        }
+
+        .dropbtn {
+            background-color: #fff;
+            color: #333;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 1s ease-out, opacity 0.3s ease-out;
+            text-align: center;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 1em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown.active .dropdown-content {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <a href="/data">Raw data</a>
+        <a href="https://sac.ie">Our School</a>
+        <a href="/feedback">Send Feedback</a>
+        <a href="/become-a-data-collector">Become a data collector</a>
+        <div class="dropdown" id="beachesDropdown">
+            <button class="dropbtn" onclick="toggleDropdown()">Beaches &#9662;</button>
+            <div class="dropdown-content">
+                <a href="beaches#blackrock">Blackrock</a>
+                <a href="beaches#booterstown">Booterstown</a>
+                <a href="beaches#dalkey">Dalkey</a>
+                <a href="beaches#dunlaoghaire">Dun Laoghaire</a>
+                <a href="beaches#sandymount">Sandymount</a>
+                <a href="beaches#seapoint">Seapoint</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <h1>Water Quality Data</h1>
+    <table>
+        <tr>
+            <th>Location</th>
+            <th colspan="3">pH</th>
+            <th colspan="3">Salt Concentration</th>
+            <th colspan="3">Nitrate</th>
+            <th>Coordinates</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>21-Feb</th>
+            <th>28-Feb</th>
+            <th>7-Mar</th>
+            <th>21-Feb</th>
+            <th>28-Feb</th>
+            <th>7-Mar</th>
+            <th>21-Feb</th>
+            <th>28-Feb</th>
+            <th>7-Mar</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Blackrock</td>
+            <td>7.05</td><td>7.01</td><td>7.09</td>
+            <td>2.45</td><td>3.53</td><td>4.89</td>
+            <td>4.1</td><td>3.1</td><td>3.93</td>
+            <td>53°18'08"N 6°10'37"W</td>
+        </tr>
+        <tr>
+            <td>Booterstown</td>
+            <td>7.23</td><td>7.12</td><td>7.16</td>
+            <td>3.52</td><td>3.5</td><td>3.49</td>
+            <td>3.53</td><td>2.78</td><td>3.64</td>
+            <td>53°18'36"N 6°11'42"W</td>
+        </tr>
+        <tr>
+            <td>Dalkey</td>
+            <td>6.91</td><td>7.02</td><td>6.98</td>
+            <td>4.09</td><td>4.56</td><td>3.51</td>
+            <td>3.74</td><td>4.31</td><td>3.45</td>
+            <td>53°16'29"N 6°05'36"W</td>
+        </tr>
+        <tr>
+            <td>Dun Laoghaire</td>
+            <td>6.55</td><td>6.48</td><td>6.49</td>
+            <td>3.53</td><td>3.55</td><td>3.54</td>
+            <td>3.82</td><td>3.73</td><td>2.98</td>
+            <td>53°17'29"N 6°07'37"W</td>
+        </tr>
+        <tr>
+            <td>Sandymount</td>
+            <td>6.32</td><td>5.89</td><td>6.21</td>
+            <td>3.5</td><td>3.43</td><td>2.74</td>
+            <td>3.63</td><td>2.73</td><td>3.32</td>
+            <td>53°20'04"N 6°12'43"W</td>
+        </tr>
+        <tr>
+            <td>Seapoint</td>
+            <td>6.89</td><td>6.85</td><td>6.88</td>
+            <td>3.48</td><td>3.62</td><td>2.89</td>
+            <td>3.74</td><td>4.01</td><td>3.21</td>
+            <td>53°17'51"N 6°09'33"W</td>
+        </tr>
+    </table>
+
+    <script>
+        // Sidebar toggle functionality
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("open");
+        }
+
+        // Dropdown functionality
+        function toggleDropdown() {
+            document.getElementById("beachesDropdown").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

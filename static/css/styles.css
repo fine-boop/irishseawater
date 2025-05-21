@@ -1,0 +1,100 @@
+/* Banner Styling (nav) */
+nav {
+    background-color: #111; /* Darker background */
+    width: 100vw; /* Full width */
+    padding: 20px; /* More padding for a larger banner */
+    margin-left: calc(-50vw + 50%); /* Center align for full width */
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+nav a:hover {
+    background-color: #333;
+}
+
+
+/* Tabs Styling */
+.tabs {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.tabs ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tabs ul li {
+    display: inline-block;
+    padding: 10px 2000px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.tabs ul li:hover {
+    background-color: #575757;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 2000px;
+    z-index: 1;
+    top: 40px;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-content ul li {
+    padding: 10px;
+}
+
+.dropdown-content ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content ul li a:hover {
+    background-color: #575757;
+}
+
+/* Content Styling */
+.content {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.content h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Show Dropdown on Hover */
+.tabs ul li:hover + .dropdown-content {
+    display: block;
+}
+
